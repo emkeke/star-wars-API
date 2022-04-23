@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 const HomePage = () => {
 	return (
 		<>
-			<h1>Welcome to Better Todos!</h1>
-
-			<p>This link does not exist: <Link to="/not-found">Click here</Link></p>
+			<h1 className='text-center'>Star Wars Wikipedia</h1>
 		</>
 	)
 }
