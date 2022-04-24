@@ -29,16 +29,15 @@ const FilmsPage = () => {
     <>
       <h2 className='text-center'>Films</h2>
       
-      { films && ( 
-        <>
-          { films.results.map((film, index) =>
+      <div>
+          { films.results.map((film, index) => (
             <div key={index}>
               <p>{film.title}</p>
             </div>
-            )
+          ))
           }
-        </>
-      )}    
+        </div>
+        
     </>
   )
 }

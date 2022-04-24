@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import FilmsPage from './pages/FilmsPage'
 import PeoplePage from './pages/PeoplePage'
+import CharacterPage from './pages/CharacterPage'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
@@ -21,6 +22,7 @@ const App = () => {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/films" element={<FilmsPage />} />
 					<Route path="/people" element={<PeoplePage />} />
+					<Route path="/people/:id" element={<CharacterPage />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</Container>

@@ -7,10 +7,11 @@
  import StarWarsAPI from '../services/StarWarsAPI'
  
  //import { ListGroup } from 'react-bootstrap/ListGroup'
- //import Button from 'react-bootstrap/Button'
+ import Button from 'react-bootstrap/Button'
  
  const PeoplePage = () => {
    const [people, setPeople] = useState([])
+   const [page, setPage] = useState(0)
  
    const getPeople = async () => {
      //Get the films from the API
@@ -28,16 +29,34 @@
    return (
      <>
        <h2 className='text-center'>Start Wars Characters</h2>
-       { people && ( 
-        <>
+      { people && ( 
+        <div>
           { people.results.map((char, index) =>
             <div key={index}>
               <p>{char.name}</p>
             </div>
             )
           }
-        </>
-      )}    
+        </div>
+      )}   
+
+      <div className="d-flex justify-content-between align-items-center mt-4">
+				<div className="prev">
+					<Button
+					  disabled={page === 0}
+						onClick={() => setPage(prevValue => prevValue - 1)}
+						variant="primary"
+					>Previous Page</Button>
+				</div>
+				<div className="page">{page + 1}</div>
+				<div className="next">
+					<Button
+						disabled={page + 1 }
+						onClick={() => setPage(prevValue => prevValue + 1)}
+						variant="primary"
+					>Next Page</Button>
+				</div>
+      </div>  
        
      </>
    )

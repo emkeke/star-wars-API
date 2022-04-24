@@ -27,8 +27,18 @@ const getFilms = async () => {
     return res.data
 }
 
+/** 
+ * Specific Character
+ */
+
+const getCharacter = async (id) => {
+    const res = await axios.get(`${BASE_URL}/people/:id`)
+    return res.data
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     getFilms,
-    getPeople
+    getPeople,
+    getCharacter
 }
