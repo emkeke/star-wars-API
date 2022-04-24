@@ -28,6 +28,17 @@
    return (
      <>
        <h2 className='text-center'>Start Wars Characters</h2>
+       { people && ( 
+        <>
+          { people.results.map((char, index) =>
+            <div key={index}>
+              <p>{char.name}</p>
+            </div>
+            )
+          }
+        </>
+      )}    
+       
      </>
    )
  }

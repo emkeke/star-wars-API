@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 //import { Link } from 'react-router-dom'
 import StarWarsAPI from '../services/StarWarsAPI'
-import ListGroup from 'react-bootstrap/ListGroup'
+//import ListGroup from 'react-bootstrap/ListGroup'
 //import Button from 'react-bootstrap/Button'
 
 const FilmsPage = () => {
@@ -28,16 +28,17 @@ const FilmsPage = () => {
   return (
     <>
       <h2 className='text-center'>Films</h2>
-      <div>
-        {films.results.map((film, index) =>
-          <div key={index}>
-            <p>{film.title}</p>
-          </div>
-
-        )}
-      </div>
       
-      
+      { films && ( 
+        <>
+          { films.results.map((film, index) =>
+            <div key={index}>
+              <p>{film.title}</p>
+            </div>
+            )
+          }
+        </>
+      )}    
     </>
   )
 }
