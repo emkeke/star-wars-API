@@ -3,14 +3,14 @@
  */
 
  import {useEffect, useState } from 'react'
- //import { Link } from 'react-router-dom'
+ import { Link } from 'react-router-dom'
  import StarWarsAPI from '../services/StarWarsAPI'
  
  //import { ListGroup } from 'react-bootstrap/ListGroup'
  import Button from 'react-bootstrap/Button'
  
  const PeoplePage = () => {
-   const [people, setPeople] = useState([])
+   const [people, setPeople] = useState()
    const [page, setPage] = useState(0)
  
    const getPeople = async () => {
@@ -29,11 +29,14 @@
    return (
      <>
        <h2 className='text-center'>Start Wars Characters</h2>
+       {/* Logical && => shows up when its true */}
       { people && ( 
         <div>
           { people.results.map((char, index) =>
             <div key={index}>
               <p>{char.name}</p>
+              <Button variant="warning" as={Link} to={`/people/${index}`}>Read more..</Button>
+              {/* <Link to={`/people/${index + 1}`} type="button" className='btn'></Link> */}
             </div>
             )
           }

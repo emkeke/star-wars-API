@@ -10,26 +10,28 @@ import StarWarsAPI from '../services/StarWarsAPI'
 //import Button from 'react-bootstrap/Button'
 
 const FilmsPage = () => {
-  const [films, setFilms] = useState([])
+  const [films, setFilms] = useState()
 
   const getFilms = async () => {
     //Get the films from the API
    const data = await StarWarsAPI.getFilms()
 
    setFilms(data)
-   console.log(data)
 
   }
 
   useEffect(() => {
-    getFilms()  
+    getFilms() 
   }, [])
+
+  console.log(films)
 
   return (
     <>
       <h2 className='text-center'>Films</h2>
       
-      <div>
+      { films && (
+        <div>
           { films.results.map((film, index) => (
             <div key={index}>
               <p>{film.title}</p>
@@ -37,6 +39,7 @@ const FilmsPage = () => {
           ))
           }
         </div>
+      )}     
         
     </>
   )
