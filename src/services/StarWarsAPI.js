@@ -4,7 +4,7 @@
 
 import axios from 'axios'
 
-const BASE_URL = 'https://swapi.dev/api/'
+const BASE_URL = 'https://swapi.dev/api'
 
 //const sleep = async delay => new Promise(r => setTimeout(r, delay)) 
 
@@ -32,7 +32,16 @@ const getFilms = async () => {
  */
 
 const getCharacter = async (id) => {
-    const res = await axios.get(`${BASE_URL}/people/:id`)
+    const res = await axios.get(`${BASE_URL}/people/${id}`)
+    return res.data
+}
+
+/** 
+ * Specific Film
+ */
+
+ const getFilm = async (id) => {
+    const res = await axios.get(`${BASE_URL}/film/${id}`)
     return res.data
 }
 
@@ -40,5 +49,6 @@ const getCharacter = async (id) => {
 export default {
     getFilms,
     getPeople,
-    getCharacter
+    getCharacter,
+    getFilm,
 }

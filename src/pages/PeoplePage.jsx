@@ -30,18 +30,28 @@
      <>
        <h2 className='text-center'>Start Wars Characters</h2>
        {/* Logical && => shows up when its true */}
-      { people && ( 
-        <div>
+
+       { people && ( 
+        <div className="d-flex flex-wrap mt-4">
           { people.results.map((char, index) =>
-            <div key={index}>
-              <p>{char.name}</p>
-              <Button variant="warning" as={Link} to={`/people/${index}`}>Read more..</Button>
-              {/* <Link to={`/people/${index + 1}`} type="button" className='btn'></Link> */}
+            <div className='w-50'>
+              <div className='card m-2'>
+                <div key={index}>
+                  <h5 className='text-center mt-2'>{char.name}</h5>
+                  <div className='card-text p-2'>
+                    <p>Gender: {char.gender}</p>
+                    <p>Born: {char.birth_year}</p>
+                    <p>In: {char.films.length} films</p>
+                  </div>
+                  <Button className='m-3' as={Link} to={`/people/${index}`}>Read more..</Button>
+                  {/* <Link to={`/people/${index + 1}`} type="button" className='btn'></Link> */}
+                </div>
+              </div>
             </div>
             )
           }
         </div>
-      )}   
+      )}  
 
       <div className="d-flex justify-content-between align-items-center mt-4">
 				<div className="prev">

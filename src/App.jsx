@@ -4,6 +4,7 @@ import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import FilmsPage from './pages/FilmsPage'
+import FilmPage from './pages/FilmPage'
 import PeoplePage from './pages/PeoplePage'
 import CharacterPage from './pages/CharacterPage'
 
@@ -21,6 +22,7 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/films" element={<FilmsPage />} />
+					<Route path="/films" element={<FilmPage />} />
 					<Route path="/people" element={<PeoplePage />} />
 					<Route path="/people/:id" element={<CharacterPage />} />
 					<Route path="*" element={<NotFound />} />
