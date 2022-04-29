@@ -27,7 +27,7 @@ const CharacterPage = () => {
   return (
     <>
       {character &&
-      <div><h2 className='text-center'>{character.name}details</h2></div>
+      <div><h2 className='text-center'>{character.name} details</h2></div>
       }
         
 

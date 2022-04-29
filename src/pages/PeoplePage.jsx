@@ -43,7 +43,7 @@
                     <p>Born: {char.birth_year}</p>
                     <p>In: {char.films.length} films</p>
                   </div>
-                  <Button className='m-3' as={Link} to={`/people/${index}`}>Read more..</Button>
+                  <Button className='m-3' as={Link} to={`/people/${index + 1}`}>Read more..</Button>
                   {/* <Link to={`/people/${index + 1}`} type="button" className='btn'></Link> */}
                 </div>
               </div>
