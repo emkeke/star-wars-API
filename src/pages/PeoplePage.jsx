@@ -28,7 +28,7 @@
  
    return (
      <>
-       <h2 className='text-center'>Start Wars Characters</h2>
+       <h2 className='text-center text-yellow'>Start Wars Characters</h2>
        {/* Logical && => shows up when its true */}
 
        { people && ( 
@@ -37,14 +37,13 @@
             <div className='w-50'>
               <div className='card m-2'>
                 <div key={index}>
-                  <h5 className='text-center mt-2'>{char.name}</h5>
+                  <h5 id='title-people' className='text-center mt-2'>{char.name}</h5>
                   <div className='card-text p-2'>
                     <p>Gender: {char.gender}</p>
                     <p>Born: {char.birth_year}</p>
                     <p>In: {char.films.length} films</p>
                   </div>
-                  <Button className='m-3' as={Link} to={`/people/${index + 1}`}>Read more..</Button>
-                  {/* <Link to={`/people/${index + 1}`} type="button" className='btn'></Link> */}
+                  <Button id='btn-people' className='m-3' as={Link} to={`/people/${index + 1}`}>Read more..</Button>
                 </div>
               </div>
             </div>

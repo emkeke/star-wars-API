@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 const NotFound = () => {
 	return (
 		<>
-			<h1 id='not-found' className='text-center'>Whoops! Page could not be found</h1>
+			<h1 id='not-found' className='text-center text-yellow'>Whoops! Page could not be found</h1>
 
 			<Row className="justify-content-md-center">
        			<Image src={SadKittyCat} fluid />

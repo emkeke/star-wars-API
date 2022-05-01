@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button'
 //import Card from 'react-bootstrap/Card'
 import { ListGroup } from 'react-bootstrap'
 //import Col from 'react-bootstrap/Col'
+import { getIdFromUrl } from '../helpers'
+
 
 
 const FilmsPage = () => {
@@ -32,7 +34,7 @@ const FilmsPage = () => {
 
   return (
     <>
-      <h2 className='text-center'>Films</h2>
+      <h2 className='text-center text-yellow'>Films</h2>
         { films && (
           <div className="d-flex flex-wrap mt-4">
             { films.results.map((film, index) => (
@@ -41,14 +43,14 @@ const FilmsPage = () => {
                   <ListGroup  key={index}>
                     <div className='card-body'>
                       <div className='card-title text-center'>
-                        <h5>{film.title}</h5>
+                        <h5 id='film-title'>{film.title}</h5>
                       </div>
                       <div className='card-text'>
                         <p>Episode {film.episode_id}</p>
                         <p>Released {film.release_date}</p>
                         <p>Characters: {film.characters.length}</p>
                       </div>
-                      <Button as={Link} to={`/film/${index}`}>
+                      <Button id='btn-films' as={Link} to={`/films/${index + 1}`}>
                         Read more
                       </Button>
                     </div>

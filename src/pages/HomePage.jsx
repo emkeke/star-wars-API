@@ -6,10 +6,10 @@ import Image from 'react-bootstrap/Image'
 const HomePage = () => {
 	return (
 		<>
-			<h1 className='text-center'>Star Wars Wikipedia</h1>
+			<h1 className='text-center text-yellow'>Star Wars Wikipedia</h1>
 
 			<Row className="justify-content-md-center">
-       			<Image src={StarWarsImg} fluid />
+       			<Image id='home-img' src={StarWarsImg} fluid />
 			</Row>
 		</>
 	)
