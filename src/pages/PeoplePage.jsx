@@ -32,43 +32,45 @@
        {/* Logical && => shows up when its true */}
 
        { people && ( 
-        <div className="d-flex flex-wrap mt-4">
-          { people.results.map((char, index) =>
-            <div className='w-50'>
-              <div className='card m-2'>
-                <div key={index}>
-                  <h5 id='title-people' className='text-center mt-2'>{char.name}</h5>
-                  <div className='card-text p-2'>
-                    <p>Gender: {char.gender}</p>
-                    <p>Born: {char.birth_year}</p>
-                    <p>In: {char.films.length} films</p>
+        <>
+          <div className="d-flex flex-wrap mt-4">
+            { people.results.map((char, index) =>
+              <div className='w-50'>
+                <div className='card m-2'>
+                  <div key={index}>
+                    <h5 id='title-people' className='text-center mt-2'>{char.name}</h5>
+                    <div className='card-text p-2'>
+                      <p>Gender: {char.gender}</p>
+                      <p>Born: {char.birth_year}</p>
+                      <p>In: {char.films.length} films</p>
+                    </div>
+                    <Button id='btn-people' className='m-3' as={Link} to={`/people/${index + 1}`}>Read more..</Button>
                   </div>
-                  <Button id='btn-people' className='m-3' as={Link} to={`/people/${index + 1}`}>Read more..</Button>
                 </div>
               </div>
-            </div>
-            )
-          }
-        </div>
-      )}  
+              )
+            }
+          </div>
 
-      <div className="d-flex justify-content-between align-items-center mt-4">
-				<div className="prev">
-					<Button
-					  disabled={page === 0}
-						onClick={() => setPage(prevValue => prevValue - 1)}
-						variant="primary"
-					>Previous Page</Button>
-				</div>
-				<div className="page">{page + 1}</div>
-				<div className="next">
-					<Button
-						disabled={page + 1 }
-						onClick={() => setPage(prevValue => prevValue + 1)}
-						variant="primary"
-					>Next Page</Button>
-				</div>
-      </div>  
+          <div className="d-flex justify-content-between align-items-center mt-4">
+            <div className="prev">
+              <Button
+                disabled={page === 0}
+                onClick={() => setPage(prevValue => prevValue - 1)}
+                variant="primary"
+              >Previous Page</Button>
+            </div>
+            <div className="page">{page + 1}</div>
+            <div className="next">
+              <Button
+                disabled={page + 1 >= people.next}
+                onClick={() => setPage(prevValue => prevValue + 1)}
+                variant="primary"
+              >Next Page</Button>
+            </div>
+          </div> 
+        </>
+        )}  
        
      </>
    )
