@@ -4,8 +4,9 @@
 
 import {useEffect, useState } from 'react'
 import StarWarsAPI from '../services/StarWarsAPI'
-import getIdFromUrl from '../helpers/index'
+import { getIdFromUrl } from '../helpers/index'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
  
 const CharacterPage = () => {
@@ -38,6 +39,10 @@ const CharacterPage = () => {
             <p>Skin color: {character.skin_color}</p>
             <p>Eye color: {character.eye_color}</p>
           </div>
+          { character.films.map((film, index) => (
+            <Link to={`/films/${getIdFromUrl(film)}`} key={index} className='btn'>Films: {getIdFromUrl(film)}</Link>
+            ))                   
+          }
         </div>
       }
         

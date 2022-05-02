@@ -33,8 +33,7 @@ const FilmPage = () => {
                     <p>Release date: {film.release_date}</p>
                     { film.characters.map((char, index) => (
                       <Link to={`/people/${getIdFromUrl(char)}`} key={index} className='btn'>Character: {getIdFromUrl(char)}</Link>
-                    ))
-                    
+                      ))                   
                     }
                   </div>
                 </div>
