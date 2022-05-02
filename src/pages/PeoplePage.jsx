@@ -5,8 +5,6 @@
  import {useEffect, useState } from 'react'
  import { Link } from 'react-router-dom'
  import StarWarsAPI from '../services/StarWarsAPI'
- 
- //import { ListGroup } from 'react-bootstrap/ListGroup'
  import Button from 'react-bootstrap/Button'
  
  const PeoplePage = () => {
@@ -35,9 +33,9 @@
         <>
           <div className="d-flex flex-wrap mt-4">
             { people.results.map((char, index) =>
-              <div className='w-50'>
+              <div className='w-50' key={index}>
                 <div className='card m-2'>
-                  <div key={index}>
+                  <div>
                     <h5 id='title-people' className='text-center mt-2'>{char.name}</h5>
                     <div className='card-text p-2'>
                       <p>Gender: {char.gender}</p>

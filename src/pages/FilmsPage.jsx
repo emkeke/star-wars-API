@@ -6,14 +6,7 @@ import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
 import StarWarsAPI from '../services/StarWarsAPI'
-//import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-//import Card from 'react-bootstrap/Card'
-import { ListGroup } from 'react-bootstrap'
-//import Col from 'react-bootstrap/Col'
-import { getIdFromUrl } from '../helpers'
-
-
 
 const FilmsPage = () => {
   const [films, setFilms] = useState()
@@ -38,23 +31,19 @@ const FilmsPage = () => {
         { films && (
           <div className="d-flex flex-wrap mt-4">
             { films.results.map((film, index) => (
-              <div className='w-50'>
+              <div className='w-50' key={index}> 
                 <div className='card m-2'>
-                  <ListGroup  key={index}>
-                    <div className='card-body'>
-                      <div className='card-title text-center'>
-                        <h5 id='film-title'>{film.title}</h5>
-                      </div>
-                      <div className='card-text'>
-                        <p>Episode {film.episode_id}</p>
-                        <p>Released {film.release_date}</p>
-                        <p>Characters: {film.characters.length}</p>
-                      </div>
-                      <Button id='btn-films' as={Link} to={`/films/${index + 1}`}>
-                        Read more
-                      </Button>
-                    </div>
-                  </ListGroup>
+                  <div className='card-title text-center'>
+                    <h5 id='film-title'>{film.title}</h5>
+                  </div>
+                  <div className='card-text'>
+                    <p>Episode {film.episode_id}</p>
+                    <p>Released {film.release_date}</p>
+                    <p>Characters: {film.characters.length}</p>
+                  </div>
+                  <Button id='btn-films' as={Link} to={`/films/${index + 1}`}>
+                    Read more
+                  </Button>
                 </div>
               </div>
             ))
