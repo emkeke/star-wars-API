@@ -13,9 +13,9 @@
    const [people, setPeople] = useState()
    const [page, setPage] = useState(0)
  
-   const getPeople = async () => {
+   const getPeople = async (page = 0) => {
      //Get the films from the API
-    const data = await StarWarsAPI.getPeople()
+    const data = await StarWarsAPI.getPeople(page)
     setPeople(data)
  
     console.log(data)

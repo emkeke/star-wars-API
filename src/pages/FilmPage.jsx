@@ -31,8 +31,8 @@ const FilmPage = () => {
                     <p>Director: {film.director}</p>
                     <p>Producer: {film.producer}</p>
                     <p>Release date: {film.release_date}</p>
-                    { film.characters.map(index => (
-                      <Link to={`/people/${index + 1}`} type="link" className='btn'>{film.characters}</Link>
+                    { film.characters.map((char, index) => (
+                      <Link to={`/people/${getIdFromUrl(char)}`} key={index} className='btn'>Character: {getIdFromUrl(char)}</Link>
                     ))
                     
                     }
